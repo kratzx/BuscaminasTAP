@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Desafio tecnico propuesto por el equipo de TAP.",
   "main": "./src/app.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",

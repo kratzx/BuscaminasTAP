@@ -1,3 +1,3 @@
-const msg = 'Hello World!';
+import expressSv from "./server/expressSv.js";
 
-console.log(msg);
+expressSv.port(1337).start();
