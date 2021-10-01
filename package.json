@@ -1,0 +1,31 @@
+{
+  "name": "buscaminastap",
+  "version": "0.0.1",
+  "description": "Desafio tecnico propuesto por el equipo de TAP.",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start": "cd ./src && node app.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kratzx/BuscaminasTAP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kratzx/BuscaminasTAP/issues"
+  },
+  "homepage": "https://github.com/kratzx/BuscaminasTAP#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^27.2.4",
+    "supertest": "^6.1.6"
+  }
+}
