@@ -29,4 +29,10 @@ export default class Buscaminas {
     // TODO
     return true;
   }
+
+  static isValidBuscaminas(obj) {
+    return obj?.hasOwnProperty('id') 
+      && obj?.hasOwnProperty('level') 
+      && Buscaminas.isValidLevel(obj);
+  }
 }
