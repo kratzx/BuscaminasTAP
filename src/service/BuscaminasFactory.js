@@ -1,7 +1,7 @@
 import { generateRandomId } from '../helpers/generateRandom.js';
 import Buscaminas from './Buscaminas.js';
 
-export default class BuscaminasFactory {
+class BuscaminasFactory {
   
   constructor() {
     this.storage = {};
@@ -10,28 +10,33 @@ export default class BuscaminasFactory {
   create() {
     const id = generateRandomId();
     this.storage[id] = new Buscaminas(id);
-    return id;
+    return this.storage[id];
   }
 
   findById(id) {
     const obj = this.storage[id];
-    if (obj instanceof Buscaminas) {
+    if (Buscaminas.isValidBuscaminas(obj)) {
       return obj;
     } else {
-      throw new Error('No existe ID');
+      throw new Error(`No existe ID: ${id}`);
     }
   }
 
-  save(id, obj) {
-    if (Buscaminas.isValidLevel(obj)) {
+  save(obj) {
+    if (Buscaminas.isValidBuscaminas(obj)) {
+      const id = obj.id;
       const saved = this.storage[id];
-      if (saved instanceof Buscaminas && saved.id === id) {
+      if (Buscaminas.isValidBuscaminas(saved)) {
         this.storage[id] = obj;
       } else {
-        throw new Error('No existe ID');
+        throw new Error(`No existe ID: ${id}`);
       }
     } else {
-      throw new Error('Nivel no valido!');
+      throw new Error(`Nivel no valido! ID: ${id} Nivel:${obj}`);
     }
   }
 }
+
+const buscaminasFactory = new BuscaminasFactory();
+
+export default buscaminasFactory;
