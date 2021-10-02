@@ -29,6 +29,10 @@ class Server {
   _loadMiddleware() {
     this._app.use(express.json());
     this._app.use(express.urlencoded({ extended: true }));
+    this._app.use((req, res, next) => {
+      console.log(`${req.method} ${req.originalUrl}`);
+      next();
+    })
   }
 
 }
