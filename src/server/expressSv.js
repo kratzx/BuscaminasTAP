@@ -26,7 +26,10 @@ class Server {
     Router.buscaminas(this._app);
   }
 
-  _loadMiddleware() {}
+  _loadMiddleware() {
+    this._app.use(express.json());
+    this._app.use(express.urlencoded({ extended: true }));
+  }
 
 }
 
